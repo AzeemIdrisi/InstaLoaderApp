@@ -59,20 +59,21 @@ class MainActivity : AppCompatActivity() {
 
 
         Btn.setOnClickListener() {
-//            dl_status.text = "Download Started"
             if (Box.text.toString() != "") {
                 Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
+                    dl_status.setText( "Download Status : Downloading")
                 try {
                     downloader?.call(Box.text.toString())
                     Toast.makeText(this, "Download Finished", Toast.LENGTH_LONG).show()
-                    dl_status.text = "Download Finished"
+                    dl_status.text = "Download Status : Finished"
                 } catch (error: Throwable) {
                     Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show()
+
+                    val show_error = findViewById<TextView>(R.id.textView)
+                    show_error.text = error.toString()
                     println(error)
                 }
-            }
-            else
-            {
+            } else {
                 Toast.makeText(this, "Empty Field", Toast.LENGTH_LONG).show()
             }
         }
