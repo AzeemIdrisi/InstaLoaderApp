@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         val py = Python.getInstance()
         val module = py.getModule("script")
         val downloader = module["download"]
+        val posts =  module["post_count"]
 
 
         val Box = findViewById<EditText>(R.id.inputBox)
@@ -61,7 +62,8 @@ class MainActivity : AppCompatActivity() {
         Btn.setOnClickListener() {
             if (Box.text.toString() != "") {
                 Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
-                    dl_status.setText( "Download Status : Downloading")
+
+                dl_status.text = "Found ${posts?.call(Box.text.toString())} posts."
                 try {
                     downloader?.call(Box.text.toString())
                     Toast.makeText(this, "Download Finished", Toast.LENGTH_LONG).show()
@@ -71,7 +73,6 @@ class MainActivity : AppCompatActivity() {
 
                     val show_error = findViewById<TextView>(R.id.textView)
                     show_error.text = error.toString()
-                    println(error)
                 }
             } else {
                 Toast.makeText(this, "Empty Field", Toast.LENGTH_LONG).show()
