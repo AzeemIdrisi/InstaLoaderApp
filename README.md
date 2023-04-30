@@ -1,3 +1,5 @@
+![Icon](https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+
 # Insta Loader
 ### Bulk Media Downloader Android App for Instagram
 An Android app to automatically download all pictures, videos and reels from an Instagram Account in one click based on [instaloader](https://github.com/instaloader/instaloader).
