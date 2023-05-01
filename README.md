@@ -24,5 +24,7 @@ You can test it on any public Instagram Account.
 * Wait till the `Download Finished` text appears.
 * Get the downloaded files in **Internal Storage/Downloads/username/**
 
+## Download
+APK v1.0-Testing : [Click Here](https://github.com/AzeemIdrisi/InstaLoader-App/releases/download/v1.0/InstaLoader-v1.0-release.apk)
 ## Screenshots
 ![Untitled-1](https://user-images.githubusercontent.com/112647789/235360807-e6088034-7e9e-4a74-824d-f8b7a4f66fce.png)
