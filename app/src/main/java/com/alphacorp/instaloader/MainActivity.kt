@@ -18,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -63,16 +65,22 @@ class MainActivity : AppCompatActivity() {
             if (Box.text.toString() != "") {
                 Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
 
-                dl_status.text = "Found ${posts?.call(Box.text.toString())} posts."
-                try {
-                    downloader?.call(Box.text.toString())
-                    Toast.makeText(this, "Download Finished", Toast.LENGTH_LONG).show()
-                    dl_status.text = "Download Status : Finished"
-                } catch (error: Throwable) {
-                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show()
+                dl_status.text = "Found ${posts?.call(Box.text.toString())} posts, Downloading..."
 
-                    val show_error = findViewById<TextView>(R.id.textView)
-                    show_error.text = error.toString()
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        downloader?.call(Box.text.toString())
+                        runOnUiThread {
+                            Toast.makeText(this@MainActivity, "Download Finished", Toast.LENGTH_LONG).show()
+                            dl_status.text = "Download Status: Finished"
+                        }
+                    } catch (error: Throwable) {
+                        runOnUiThread {
+                            Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG).show()
+                            val show_error = findViewById<TextView>(R.id.textView)
+                            show_error.text = error.toString()
+                        }
+                    }
                 }
             } else {
                 Toast.makeText(this, "Empty Field", Toast.LENGTH_LONG).show()
@@ -80,3 +88,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

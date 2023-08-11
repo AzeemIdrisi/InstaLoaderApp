@@ -6,7 +6,7 @@ def download(profile):
     user = instaloader.Instaloader()
     user.save_metadata = False
     user.post_metadata_txt_pattern = ""
-    user.dirname_pattern = f"/sdcard/Downloads/{profile}"
+    user.dirname_pattern = f"/sdcard/InstaLoaderApp/{profile}"
     user.download_profile(profile)
 
 
