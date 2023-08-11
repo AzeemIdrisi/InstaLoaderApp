@@ -65,7 +65,16 @@ class MainActivity : AppCompatActivity() {
             if (Box.text.toString() != "") {
                 Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
 
-                dl_status.text = "Found ${posts?.call(Box.text.toString())} posts, Downloading..."
+                try {
+                    dl_status.text =
+                        "Found ${posts?.call(Box.text.toString())} posts, Downloading..."
+                }catch (error: Throwable)
+                {
+                    Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG).show()
+                    val show_error = findViewById<TextView>(R.id.textView2)
+                    val error_name =error.toString().split(":")
+                    show_error.text = error_name[error_name.size -1]
+                }
 
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -77,8 +86,9 @@ class MainActivity : AppCompatActivity() {
                     } catch (error: Throwable) {
                         runOnUiThread {
                             Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG).show()
-                            val show_error = findViewById<TextView>(R.id.textView)
-                            show_error.text = error.toString()
+                            val show_error = findViewById<TextView>(R.id.textView2)
+                            val error_name =error.toString().split(":")
+                            show_error.text = error_name[error_name.size -1]
                         }
                     }
                 }
