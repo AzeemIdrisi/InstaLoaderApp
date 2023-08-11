@@ -1,6 +1,6 @@
 ![Icon](https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
-# Insta Loader
+# InstaLoaderApp
 ### Bulk Media Downloader Android App for Instagram
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/azeemidrisi/instaloaderapp)
@@ -9,7 +9,6 @@
 An Android app to automatically download all pictures, videos and reels from an Instagram Account in one click based on [instaloader](https://github.com/instaloader/instaloader).
 
 
-It is not yet ready to use but still does the job of downloading all media.
 You can test it on any public Instagram Account.
 
 
@@ -22,9 +21,13 @@ You can test it on any public Instagram Account.
 * Enter the `username` of any public Instagram Account.
 * Click `Download All Media` button.
 * Wait till the `Download Finished` text appears.
-* Get the downloaded files in **Internal Storage/Downloads/username/**
+* Get the downloaded files in **Internal Storage/InstaLoaderApp/username/**
 
 ## Download
-APK v1.0-Testing : [Click Here](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.0/InstaLoader-v1.0-release.apk)
+APK v1.1-Release : [Click Here](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.1/InstaLoader-v1.1-release.apk)
+
 ## Screenshots
-![Untitled-1](https://user-images.githubusercontent.com/112647789/235360807-e6088034-7e9e-4a74-824d-f8b7a4f66fce.png)
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/52f13404-5a1b-4fc7-a862-43a032e8162a" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/93552945-c81a-490b-a3dd-85b35408312f" />
+
+
