@@ -32,7 +32,7 @@ APK v1.1-Release : [Click Here](https://github.com/AzeemIdrisi/InstaLoaderApp/re
 
 ## License
 
-This project is licensed under the [GPL-3 License](LICENSE.md).
+This project is licensed under the [GPL-3 License](LICENSE).
 
 ## Contributing
 
