@@ -27,8 +27,8 @@ You can test it on any public Instagram Account.
 APK v1.1-Release : [Click Here](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.1/InstaLoader-v1.1-release.apk)
 
 ## Screenshots
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/52f13404-5a1b-4fc7-a862-43a032e8162a" />
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/93552945-c81a-490b-a3dd-85b35408312f" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/80448fc3-5805-4d1b-a7a5-33cef1bda21b" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/fe28cd36-cd77-47e5-9dc3-da09bf8c084c" />
 
 ## License
 
