@@ -55,7 +55,7 @@
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="InstaLoaderApp v1.1"
+            android:text="InstaLoaderApp v1.2"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

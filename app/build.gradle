@@ -20,13 +20,8 @@ android {
             abiFilters "armeabi-v7a", "x86_64"
         }
         python {
-            version "3.11"
-        }
-        python {
-            buildPython "/usr/bin/python"
-
-        }
-        python {
+            version "3.8"
+            buildPython "C:/Users/azm52/AppData/Local/Programs/Python/Python311/python.exe"
             pip {
                 // A requirement specifier, with or without a version number:
                 install "instaloader"
