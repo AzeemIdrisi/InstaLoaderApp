@@ -14,21 +14,31 @@ You can test it on any public Instagram Account.
 
 > This project is in it's initial stage, Feel free to contribute.
 
+## Features
+* Download all media from a profile using Username.
+* Download a single post using URL.
 
 ## How to use
 
+### Downloading All Media
 ***Warning : Instagram accounts with large number of posts may take a very long time to download.***
 * Enter the `username` of any public Instagram Account.
 * Click `Download All Media` button.
 * Wait till the `Download Finished` text appears.
 * Get the downloaded files in **Internal Storage/InstaLoaderApp/username/**
 
+### Downloading Single Post
+* Enter the `URL` of any public Instagram Account's post.
+* Click `Download All Media` button.
+* Wait till the `Download Finished` text appears.
+* Get the downloaded files in **Internal Storage/InstaLoaderApp/posts/**
+
 ## Download
-**APK v1.2** Release : [Download](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.2/InstaLoader-v1.2-release.apk)
+**APK v1.3** Release : [Download](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.3/InstaLoader-v1.3-release.apk)
 
 ## Screenshots
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/80448fc3-5805-4d1b-a7a5-33cef1bda21b" />
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/fe28cd36-cd77-47e5-9dc3-da09bf8c084c" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/5daedece-7c92-4ea7-8e29-26a584765076" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/4626526d-e7fe-4beb-a7e8-b69360c8ad33" />
 
 ## License
 
@@ -43,17 +53,23 @@ Contributions are welcome! To contribute, please follow these guidelines:
 - Push your changes to your fork on GitHub.
 - Open a pull request to the main repository, explaining your changes and their purpose.
 
-# Developer
+# Developers
 
+### Author
 <a href="https://github.com/azeemidrisi/">
 <!--   <img src="https://contrib.rocks/image?repo=azeemidrisi/phonesploit-pro" /> -->
  <img width="150px" src=https://github.com/AzeemIdrisi/PhoneSploit-Pro/assets/112647789/a5fa646c-93a2-460f-bcb7-528fedb147e9 />
 
 </a>
 
-
 **Azeem Idrisi** - [@AzeemIdrisi](https://github.com/azeemidrisi/)
  
+### Contributors
+Special thanks to all the contributors :
+
+[@noobshubham](https://github.com/noobshubham/)
+
+[@PuruSinghvi](https://github.com/PuruSinghvi)
 
 # Support Me
 If you like my work you can support me via :
