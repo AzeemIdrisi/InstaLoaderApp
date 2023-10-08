@@ -18,3 +18,10 @@ def post_count(username):
     posts = profile.get_posts()
 
     return posts.count
+
+# for reference: https://github.com/instaloader/instaloader/issues/1851
+def download_post_from_link(shortcode):
+    L = instaloader.Instaloader()
+    L.dirname_pattern = f"/sdcard/InstaLoaderApp/posts"
+    post = instaloader.Post.from_shortcode(L.context, shortcode)
+    L.download_post(post, target = "")

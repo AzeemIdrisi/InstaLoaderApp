@@ -14,7 +14,8 @@
             android:id="@+id/Text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Instagram Username"
+            android:text="Enter Instagram Username\nor a Post's Link"
+            android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.14" />
+            app:layout_constraintVertical_bias="0.07" />
 
         <EditText
             android:id="@+id/inputBox"
@@ -91,7 +92,8 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download Location : InstaLoaderApp/username"
+            android:text="Download Location for profile: InstaLoaderApp/username\nDownload Location for specific posts: InstaLoaderApp/posts"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -106,10 +108,9 @@
             android:text="(Only Public Accounts)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.193" />
+            app:layout_constraintVertical_bias="0.211" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
