@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val Box = findViewById<EditText>(R.id.inputBox)
-        val dl_status = findViewById<TextView>(R.id.textView2)
+        val dl_status = findViewById<TextView>(R.id.StatusText)
         val Btn = findViewById<Button>(R.id.button)
 
 
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                                     "Something went wrong",
                                     Toast.LENGTH_LONG
                                 ).show()
-                                val show_error = findViewById<TextView>(R.id.textView2)
+                                val show_error = findViewById<TextView>(R.id.StatusText)
                                 val error_name = error.toString().split(":")
                                 show_error.text = error_name.toString()
                             }
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                     } catch (error: Throwable) {
                         Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG)
                             .show()
-                        val show_error = findViewById<TextView>(R.id.textView2)
+                        val show_error = findViewById<TextView>(R.id.StatusText)
                         val error_name = error.toString().split(":")
                         show_error.text = error_name[error_name.size - 1]
                     }
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
                                     "Something went wrong",
                                     Toast.LENGTH_LONG
                                 ).show()
-                                val show_error = findViewById<TextView>(R.id.textView2)
+                                val show_error = findViewById<TextView>(R.id.StatusText)
                                 val error_name = error.toString().split(":")
                                 show_error.text = error_name[error_name.size - 1]
                             }

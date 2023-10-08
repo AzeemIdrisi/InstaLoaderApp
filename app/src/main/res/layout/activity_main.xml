@@ -14,7 +14,7 @@
             android:id="@+id/Text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Instagram Username\nor a Post's Link"
+            android:text="Enter Instagram Username\nor Post Link"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -56,7 +56,7 @@
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="InstaLoaderApp v1.2"
+            android:text="InstaLoaderApp v1.3"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,29 +77,44 @@
             app:layout_constraintVertical_bias="0.977" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/StatusText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputBox"
-            app:layout_constraintVertical_bias="0.784" />
+            app:layout_constraintVertical_bias="0.545" />
+
+        <TextView
+            android:id="@+id/downloadLocationsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download Locations"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.755" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download Location for profile: InstaLoaderApp/username\nDownload Location for specific posts: InstaLoaderApp/posts"
+            android:text="Profiles: InstaLoaderApp/username\nPosts: InstaLoaderApp/posts"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.769" />
+            app:layout_constraintVertical_bias="0.811" />
+
 
         <TextView
             android:id="@+id/textView4"
@@ -110,7 +125,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.211" />
+            app:layout_constraintVertical_bias="0.172" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
