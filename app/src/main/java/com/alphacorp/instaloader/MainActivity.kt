@@ -66,14 +66,20 @@ class MainActivity : AppCompatActivity() {
             if (Box.text.toString() != "") {
                 Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
 
-                if (Box.text.toString().startsWith("https://www.instagram.com/p/")) { // checks if the text is a valid instagram link
+                if (Box.text.toString().startsWith("https://www.instagram.com/")) { // checks if the text is a valid instagram link
                     // Post shortcode is a part of the Post URL, https://www.instagram.com/p/SHORTCODE/
                     val url = Box.text.toString()
-                    val post_shortcode = url.substringAfter("https://www.instagram.com/p/").substringBefore("/")
+                    var postShortcode = ""
+                    if(url.startsWith("https://www.instagram.com/p/")){
+                        postShortcode = url.substringAfter("https://www.instagram.com/p/").substringBefore("/")
+                    }
+                    else if(url.startsWith("https://www.instagram.com/reel/")){
+                        postShortcode = url.substringAfter("https://www.instagram.com/reel/").substringBefore("/")
+                    }
 
                     CoroutineScope(Dispatchers.IO).launch {
                         try {
-                            linkDownloader?.call(post_shortcode)
+                            linkDownloader?.call(postShortcode)
                             runOnUiThread {
                                 Toast.makeText(
                                     this@MainActivity,
