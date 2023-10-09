@@ -17,6 +17,7 @@ You can test it on any public Instagram Account.
 ## Features
 * Download all media from a profile using Username.
 * Download a single post using URL.
+* Download a single reel using URL.
 
 ## How to use
 
@@ -28,17 +29,19 @@ You can test it on any public Instagram Account.
 * Get the downloaded files in **Internal Storage/InstaLoaderApp/username/**
 
 ### Downloading Single Post
-* Enter the `URL` of any public Instagram Account's post.
+* Select `Copy Link` from the share button of any public Instagram Account's post/reel.
+* Enter the copied `URL` in the app.
 * Click `Download All Media` button.
 * Wait till the `Download Finished` text appears.
 * Get the downloaded files in **Internal Storage/InstaLoaderApp/posts/**
 
 ## Download
-**APK v1.3** Release : [Download](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.3/InstaLoader-v1.3-release.apk)
+**APK v1.4** Release : [Download](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.4/InstaLoader-v1.4-release.apk)
 
 ## Screenshots
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/5daedece-7c92-4ea7-8e29-26a584765076" />
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/4626526d-e7fe-4beb-a7e8-b69360c8ad33" />
+
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1c41dfa9-a6c6-4ee8-9bbc-5b1061e0bdca" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1e748b8f-1689-47a9-b59a-f6f8238fd529" />
 
 ## License
 
