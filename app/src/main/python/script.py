@@ -22,6 +22,8 @@ def post_count(username):
 # for reference: https://github.com/instaloader/instaloader/issues/1851
 def download_post_from_link(shortcode):
     L = instaloader.Instaloader()
+    L.save_metadata = False
+    L.post_metadata_txt_pattern = ""
     L.dirname_pattern = f"/sdcard/InstaLoaderApp/posts"
     post = instaloader.Post.from_shortcode(L.context, shortcode)
     L.download_post(post, target = "")
