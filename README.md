@@ -1,7 +1,13 @@
-![Icon](https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
+<div align="center">
+    <img src="https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="128" height="128" style="display: block; margin: 0 auto"/>
+    <h1>InstaLoaderApp</h1>
+    <h3>Bulk Media Downloader Android App for Instagram</h3>
+</div>
+
+ <!-- ![Icon](https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 # InstaLoaderApp
-### Bulk Media Downloader Android App for Instagram
+### Bulk Media Downloader Android App for Instagram -->
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/azeemidrisi/instaloaderapp)
 ![GitHub all releases](https://img.shields.io/github/downloads/azeemidrisi/instaloaderapp/total)
@@ -35,8 +41,11 @@ You can test it on any public Instagram Account.
 * Wait till the `Download Finished` text appears.
 * Get the downloaded files in **Internal Storage/InstaLoaderApp/posts/**
 
-## Download
-**APK v1.4** Release : [Download](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/download/v1.4/InstaLoader-v1.4-release.apk)
+## Installation
+
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png"
+    alt="Get it on GitHub"
+    height="80">](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/latest)
 
 ## Screenshots
 
