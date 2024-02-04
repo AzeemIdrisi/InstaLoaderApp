@@ -17,7 +17,7 @@ An Android app to automatically download all pictures, videos and reels from an 
 
 You can test it on any public Instagram Account.
 
-
+> [!NOTE]
 > This project is in it's initial stage, Feel free to contribute.
 
 ## Features
@@ -28,7 +28,10 @@ You can test it on any public Instagram Account.
 ## How to use
 
 ### Downloading All Media
-***Warning : Instagram accounts with large number of posts may take a very long time to download.***
+
+>[!Warning]
+> Instagram accounts with large number of posts may take a very long time to download.
+
 * Enter the `username` of any public Instagram Account.
 * Click `Download All Media` button.
 * Wait till the `Download Finished` text appears.
