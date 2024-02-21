@@ -5,10 +5,6 @@
     <h3>Bulk Media Downloader Android App for Instagram</h3>
 </div>
 
- <!-- ![Icon](https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
-# InstaLoaderApp
-### Bulk Media Downloader Android App for Instagram -->
-
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/azeemidrisi/instaloaderapp)
 ![GitHub all releases](https://img.shields.io/github/downloads/azeemidrisi/instaloaderapp/total)
 
@@ -19,6 +15,13 @@ You can test it on any public Instagram Account.
 
 > [!NOTE]
 > This project is in it's initial stage, Feel free to contribute.
+
+## Screenshots
+<div align="center">
+
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1c41dfa9-a6c6-4ee8-9bbc-5b1061e0bdca" />
+<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1e748b8f-1689-47a9-b59a-f6f8238fd529" />
+</div>
 
 ## Features
 * Download all media from a profile using Username.
@@ -50,10 +53,6 @@ You can test it on any public Instagram Account.
     alt="Get it on GitHub"
     height="80">](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/latest)
 
-## Screenshots
-
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1c41dfa9-a6c6-4ee8-9bbc-5b1061e0bdca" />
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1e748b8f-1689-47a9-b59a-f6f8238fd529" />
 
 ## License
 
@@ -92,3 +91,7 @@ If you like my work you can support me via :
 <a href="https://paypal.me/AzeemIdrisi" target="_blank"> <kbd> <img
         src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal"
         width="147"></a> <a href="https://www.buymeacoffee.com/AzeemIdrisi" target="_blank"> <kbd> <img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
+
+<hr/>
+<br/>
+InstaLoaderApp &copy Azeem Idrisi 2024
