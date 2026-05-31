@@ -220,12 +220,44 @@ def _download_profile(
     if kwargs["posts"]:
         _download_profile_posts(loader, profile, username, kwargs, callback)
 
+    post_filter = kwargs.get("post_filter")
+    storyitem_filter = kwargs.get("storyitem_filter")
+    fast_update = kwargs.get("fast_update", False)
+
     extra_phases = [
-        ("stories", kwargs["stories"], lambda: loader.download_stories(userids=[profile.userid])),
-        ("highlights", kwargs["highlights"], lambda: loader.download_highlights(profile.userid)),
-        ("reels", kwargs["reels"], lambda: loader.download_reels(profile)),
-        ("igtv", kwargs["igtv"], lambda: loader.download_igtv(profile)),
-        ("tagged", kwargs["tagged"], lambda: loader.download_tagged(profile)),
+        (
+            "stories",
+            kwargs["stories"],
+            lambda: loader.download_stories(
+                userids=[profile.userid],
+                fast_update=fast_update,
+                storyitem_filter=storyitem_filter,
+            ),
+        ),
+        (
+            "highlights",
+            kwargs["highlights"],
+            lambda: loader.download_highlights(
+                profile.userid,
+                fast_update=fast_update,
+                storyitem_filter=storyitem_filter,
+            ),
+        ),
+        (
+            "reels",
+            kwargs["reels"],
+            lambda: loader.download_reels(profile, fast_update=fast_update, post_filter=post_filter),
+        ),
+        (
+            "igtv",
+            kwargs["igtv"],
+            lambda: loader.download_igtv(profile, fast_update=fast_update, post_filter=post_filter),
+        ),
+        (
+            "tagged",
+            kwargs["tagged"],
+            lambda: loader.download_tagged(profile, fast_update=fast_update, post_filter=post_filter),
+        ),
     ]
     for phase, enabled, action in extra_phases:
         if not enabled:

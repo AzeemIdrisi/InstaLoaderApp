@@ -150,10 +150,10 @@ fun SettingsScreen(
             OptionTextField("Max count", "Maximum number of posts to download", options.maxCount?.toString().orEmpty(), onValueChange = { value ->
                 viewModel.updateOptions { it.copy(maxCount = value.toIntOrNull()) }
             })
-            OptionTextField("Post filter", "Python expression, e.g. post.is_video", options.postFilter, onValueChange = { value ->
+            OptionTextField("Post filter", "e.g. not is_video or likes > 100", options.postFilter, onValueChange = { value ->
                 viewModel.updateOptions { it.copy(postFilter = value) }
             })
-            OptionTextField("Story filter", "Python expression for story items", options.storyitemFilter, onValueChange = { value ->
+            OptionTextField("Story filter", "e.g. not is_video", options.storyitemFilter, onValueChange = { value ->
                 viewModel.updateOptions { it.copy(storyitemFilter = value) }
             })
 

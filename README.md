@@ -38,7 +38,7 @@ Download profiles, posts, reels, and hashtags using [`instaloader`](https://gith
 - Profiles, single post/reel URLs, and hashtags
 - Live progress (done / left / failed) + notification
 - Full Instaloader settings (media, metadata, filters, naming, resume)
-- Optional login with 2FA; sessions stored encrypted on-device only
+- Optional login with 2FA; on-device only (session file in private app storage, username in encrypted settings)
 - Public download folder + custom location presets
 
 ---

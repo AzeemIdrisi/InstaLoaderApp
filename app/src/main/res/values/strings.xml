@@ -41,7 +41,7 @@
     <string name="login_warning_account_title">Account risk</string>
     <string name="login_warning_account">Instagram may temporarily restrict or permanently ban accounts used for automated downloading. Use a secondary account you can afford to lose, download sparingly, and accept that login is entirely at your own risk.</string>
     <string name="login_warning_privacy_title">On-device only</string>
-    <string name="login_warning_privacy">Your username and password stay on this device only. They are used locally to create an encrypted session file for Instaloader. The developer does not receive, access, or store your credentials on any server.</string>
+    <string name="login_warning_privacy">Your username and password stay on this device only. They are used locally to sign in with Instaloader and create a session file in the app\'s private storage. Only your username is kept in encrypted app settings. The developer does not receive, access, or store your credentials on any server.</string>
     <string name="about_title">About</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_description">Instagram media downloader powered by Instaloader.</string>

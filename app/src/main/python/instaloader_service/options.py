@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Dict, Optional
 
 import instaloader
+from instaloader import Post, StoryItem
+
+from instaloader_service.filter_parser import parse_filter
 
 
 DEFAULT_USER_AGENT = (
@@ -87,13 +90,6 @@ def build_instaloader(options: Dict[str, Any]) -> instaloader.Instaloader:
     return instaloader.Instaloader(**kwargs)
 
 
-def parse_filter(expression: Optional[str]) -> Optional[Callable]:
-    if not expression or not str(expression).strip():
-        return None
-    expr = str(expression).strip()
-    return eval(f"lambda p: ({expr})", {"__builtins__": {}}, {})
-
-
 def profile_download_kwargs(options: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "profile_pic": _bool(options.get("profile_pic"), True),
@@ -105,6 +101,6 @@ def profile_download_kwargs(options: Dict[str, Any]) -> Dict[str, Any]:
         "reels": _bool(options.get("reels"), False),
         "fast_update": _bool(options.get("fast_update"), False),
         "max_count": _optional_int(options.get("max_count")),
-        "post_filter": parse_filter(options.get("post_filter")),
-        "storyitem_filter": parse_filter(options.get("storyitem_filter")),
+        "post_filter": parse_filter(options.get("post_filter"), Post),
+        "storyitem_filter": parse_filter(options.get("storyitem_filter"), StoryItem),
     }

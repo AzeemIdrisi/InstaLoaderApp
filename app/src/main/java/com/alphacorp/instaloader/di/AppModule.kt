@@ -52,6 +52,7 @@ object AppModule {
         val sessionStore = EncryptedSessionStore(context)
         val pythonBridge = PythonBridge()
         return SessionRepository(
+            context = context,
             pythonBridge = pythonBridge,
             sessionStore = sessionStore,
         )
