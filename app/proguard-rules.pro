@@ -4,5 +4,6 @@
 # Instaloader Python package
 -keep class com.alphacorp.instaloader.** { *; }
 
-# Encrypted preferences
+# Encrypted preferences / Tink
 -keep class androidx.security.crypto.** { *; }
+-dontwarn javax.annotation.**

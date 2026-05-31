@@ -76,6 +76,7 @@ dependencies {
     implementation libs.androidx.navigation.compose
     implementation libs.androidx.datastore.preferences
     implementation libs.androidx.security.crypto
+    compileOnly libs.jsr305
     implementation libs.google.material
     implementation libs.kotlinx.coroutines.android
 

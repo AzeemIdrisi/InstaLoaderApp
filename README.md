@@ -7,8 +7,8 @@
 Download profiles, posts, reels, and hashtags using [`instaloader`](https://github.com/instaloader/instaloader) — with live progress, full CLI options, and optional login.
 
 ![GitHub release](https://img.shields.io/github/v/release/AzeemIdrisi/InstaLoaderApp)
-![Android](https://img.shields.io/badge/Android-7.0%2B-green)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AzeemIdrisi/InstaLoaderApp?style=social)
+![GitHub all releases](https://img.shields.io/github/downloads/azeemidrisi/instaloaderapp/total)
 
 </div>
 
@@ -98,7 +98,15 @@ Licensed under [GPL-3.0](LICENSE). Contributions welcome via pull request.
  <img width="150px" src="https://github.com/AzeemIdrisi/PhoneSploit-Pro/assets/112647789/a5fa646c-93a2-460f-bcb7-528fedb147e9" />
 </a>
 
-**Azeem Idrisi** — [@AzeemIdrisi](https://github.com/azeemidrisi/) · [@noobshubham](https://github.com/noobshubham/) · [@PuruSinghvi](https://github.com/PuruSinghvi)
+**Azeem Idrisi** - [@AzeemIdrisi](https://github.com/azeemidrisi/)
+
+### Contributors
+
+Special thanks to all the contributors :
+
+[@noobshubham](https://github.com/noobshubham/)
+
+[@PuruSinghvi](https://github.com/PuruSinghvi)
 
 <a href="https://paypal.me/AzeemIdrisi" target="_blank"><img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
 <a href="https://www.buymeacoffee.com/AzeemIdrisi" target="_blank"><img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
