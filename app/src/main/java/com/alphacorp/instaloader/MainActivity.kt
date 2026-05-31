@@ -1,148 +1,115 @@
 package com.alphacorp.instaloader
 
-import android.Manifest.permission.*
-import android.annotation.SuppressLint
-import android.content.Intent
+import android.Manifest
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import com.chaquo.python.Python
-import com.chaquo.python.android.AndroidPlatform
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import com.alphacorp.instaloader.di.AppModule
+import com.alphacorp.instaloader.service.DownloadForegroundService
+import com.alphacorp.instaloader.ui.navigation.AppNavHost
+import com.alphacorp.instaloader.ui.theme.InstaLoaderTheme
+import com.alphacorp.instaloader.util.StorageAccess
 
-class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
-    @RequiresApi(Build.VERSION_CODES.M)
+class MainActivity : ComponentActivity() {
+
+    private val downloadRepository by lazy { AppModule.downloadRepository(this) }
+    private val sessionRepository by lazy { AppModule.sessionRepository(this) }
+    private val parseInput by lazy { AppModule.parseInstagramInputUseCase() }
+
+    private var pendingDownloadInput: String? = null
+
+    private val legacyStorageLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        if (granted) {
+            continueDownloadPermissionFlow()
+        } else {
+            Toast.makeText(
+                this,
+                getString(R.string.storage_permission_required),
+                Toast.LENGTH_LONG,
+            ).show()
+            pendingDownloadInput = null
+        }
+    }
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { _ ->
+        startPendingDownload()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        setContentView(R.layout.activity_main)
+        enableEdgeToEdge()
+        downloadRepository.sessionDirectory()
+        downloadRepository.downloadBaseDir()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(arrayOf<String>(WRITE_EXTERNAL_STORAGE), 1)
-            }
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (!Environment.isExternalStorageManager()) {
-
-                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-                val uri: Uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivity(intent)
-            }
-
-        }
-        var a = Environment.getExternalStorageDirectory()
-        if (!Python.isStarted()) {
-            Python.start(AndroidPlatform(this));
-        }
-
-        val py = Python.getInstance()
-        val module = py.getModule("script")
-        val downloader = module["download"]
-        val posts =  module["post_count"]
-        val linkDownloader = module["download_post_from_link"]
-
-
-        val Box = findViewById<EditText>(R.id.inputBox)
-        val dl_status = findViewById<TextView>(R.id.StatusText)
-        val Btn = findViewById<Button>(R.id.button)
-
-
-        Btn.setOnClickListener() {
-            if (Box.text.toString() != "") {
-                Toast.makeText(this, "Download Started", Toast.LENGTH_LONG).show()
-
-                if (Box.text.toString().startsWith("https://www.instagram.com/")) { // checks if the text is a valid instagram link
-                    // Post shortcode is a part of the Post URL, https://www.instagram.com/p/SHORTCODE/
-                    val url = Box.text.toString()
-                    var postShortcode = ""
-                    if(url.startsWith("https://www.instagram.com/p/")){
-                        postShortcode = url.substringAfter("https://www.instagram.com/p/").substringBefore("/")
-                    }
-                    else if(url.startsWith("https://www.instagram.com/reel/")){
-                        postShortcode = url.substringAfter("https://www.instagram.com/reel/").substringBefore("/")
-                    }
-
-                    CoroutineScope(Dispatchers.IO).launch {
-                        try {
-                            linkDownloader?.call(postShortcode)
-                            runOnUiThread {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Download Finished",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                                dl_status.text = "Download Status: Finished"
-                            }
-                        } catch (error: Throwable) {
-                            runOnUiThread {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Something went wrong",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                                val show_error = findViewById<TextView>(R.id.StatusText)
-                                val error_name = error.toString().split(":")
-                                show_error.text = error_name.toString()
-                            }
-                        }
-                    }
-                }
-                else { // if the text is not a link, it must be an instagram username
-                    try {
-                        dl_status.text =
-                            "Found ${posts?.call(Box.text.toString())} posts, Downloading..."
-                    } catch (error: Throwable) {
-                        Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG)
-                            .show()
-                        val show_error = findViewById<TextView>(R.id.StatusText)
-                        val error_name = error.toString().split(":")
-                        show_error.text = error_name[error_name.size - 1]
-                    }
-
-                    CoroutineScope(Dispatchers.IO).launch {
-                        try {
-                            downloader?.call(Box.text.toString())
-                            runOnUiThread {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Download Finished",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                                dl_status.text = "Download Status: Finished"
-                            }
-                        } catch (error: Throwable) {
-                            runOnUiThread {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Something went wrong",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                                val show_error = findViewById<TextView>(R.id.StatusText)
-                                val error_name = error.toString().split(":")
-                                show_error.text = error_name[error_name.size - 1]
-                            }
-                        }
-                    }
-                }
-            } else {
-                Toast.makeText(this, "Empty Field", Toast.LENGTH_LONG).show()
+        setContent {
+            InstaLoaderTheme {
+                AppNavHost(
+                    downloadRepository = downloadRepository,
+                    sessionRepository = sessionRepository,
+                    parseInput = parseInput,
+                    onStartDownload = ::startDownloadWithPermissions,
+                    onCancelDownload = {
+                        DownloadForegroundService.cancel(this)
+                    },
+                )
             }
         }
     }
-}
 
+    override fun onResume() {
+        super.onResume()
+        if (pendingDownloadInput != null && StorageAccess.hasWriteAccess(this)) {
+            continueDownloadPermissionFlow()
+        }
+    }
+
+    private fun startDownloadWithPermissions(input: String) {
+        pendingDownloadInput = input
+        when {
+            StorageAccess.needsLegacyWritePermission() &&
+                !StorageAccess.hasWriteAccess(this) -> {
+                legacyStorageLauncher.launch(StorageAccess.legacyWritePermission())
+            }
+
+            StorageAccess.needsManageStoragePermission() &&
+                !StorageAccess.hasWriteAccess(this) -> {
+                Toast.makeText(
+                    this,
+                    getString(R.string.storage_permission_required),
+                    Toast.LENGTH_LONG,
+                ).show()
+                startActivity(StorageAccess.manageStorageSettingsIntent(this))
+            }
+
+            else -> continueDownloadPermissionFlow()
+        }
+    }
+
+    private fun continueDownloadPermissionFlow() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        } else {
+            startPendingDownload()
+        }
+    }
+
+    private fun startPendingDownload() {
+        pendingDownloadInput?.let { input ->
+            DownloadForegroundService.start(this, input)
+        }
+        pendingDownloadInput = null
+    }
+}

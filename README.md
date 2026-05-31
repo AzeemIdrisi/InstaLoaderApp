@@ -1,97 +1,108 @@
-
 <div align="center">
-    <img src="https://github.com/AzeemIdrisi/InstaLoader-App/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="128" height="128" style="display: block; margin: 0 auto"/>
-    <h1>InstaLoaderApp</h1>
-    <h3>Bulk Media Downloader Android App for Instagram</h3>
+
+# InstaLoaderApp
+
+### Bulk Instagram media downloader for Android.
+
+Download profiles, posts, reels, and hashtags using [`instaloader`](https://github.com/instaloader/instaloader) — with live progress, full CLI options, and optional login.
+
+![GitHub release](https://img.shields.io/github/v/release/AzeemIdrisi/InstaLoaderApp)
+![Android](https://img.shields.io/badge/Android-7.0%2B-green)
+![GitHub Repo stars](https://img.shields.io/github/stars/AzeemIdrisi/InstaLoaderApp?style=social)
+
 </div>
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/azeemidrisi/instaloaderapp)
-![GitHub all releases](https://img.shields.io/github/downloads/azeemidrisi/instaloaderapp/total)
+## Overview
 
-An Android app to automatically download all pictures, videos and reels from an Instagram Account in one click based on [instaloader](https://github.com/instaloader/instaloader).
+**InstaLoaderApp** uses Jetpack Compose, foreground downloads with notifications, and instaloader 4.15.1 via Chaquopy. Files save to **`Downloads/InstaLoaderApp/`** by default (changeable in Settings → Storage).
 
+> [!TIP]
+> Login is optional — only needed for private content, stories, highlights, or comments.
 
-You can test it on any public Instagram Account.
-
-> [!NOTE]
-> This project is in it's initial stage, Feel free to contribute.
+---
 
 ## Screenshots
+
 <div align="center">
 
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1c41dfa9-a6c6-4ee8-9bbc-5b1061e0bdca" />
-<img height="600px" src="https://github.com/AzeemIdrisi/InstaLoaderApp/assets/112647789/1e748b8f-1689-47a9-b59a-f6f8238fd529" />
+<img height="600px" src="screenshots/1.png" />
+<img height="600px" src="screenshots/2.png" />
+<img height="600px" src="screenshots/3.png" />
+
 </div>
 
+---
+
 ## Features
-* Download all media from a profile using Username.
-* Download a single post using URL.
-* Download a single reel using URL.
 
-## How to use
+- Profiles, single post/reel URLs, and hashtags
+- Live progress (done / left / failed) + notification
+- Full Instaloader settings (media, metadata, filters, naming, resume)
+- Optional login with 2FA; on-device only (session file in private app storage, username in encrypted settings)
+- Public download folder + custom location presets
 
-### Downloading All Media
-
->[!Warning]
-> Instagram accounts with large number of posts may take a very long time to download.
-
-* Enter the `username` of any public Instagram Account.
-* Click `Download All Media` button.
-* Wait till the `Download Finished` text appears.
-* Get the downloaded files in **Internal Storage/InstaLoaderApp/username/**
-
-### Downloading Single Post
-* Select `Copy Link` from the share button of any public Instagram Account's post/reel.
-* Enter the copied `URL` in the app.
-* Click `Download All Media` button.
-* Wait till the `Download Finished` text appears.
-* Get the downloaded files in **Internal Storage/InstaLoaderApp/posts/**
+---
 
 ## Installation
 
-[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png"
-    alt="Get it on GitHub"
-    height="80">](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/latest)
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="80">](https://github.com/AzeemIdrisi/InstaLoaderApp/releases/latest)
 
+Install the APK, then on first download grant **All files access** (Android 11+) and **Notifications** (Android 13+) when prompted.
 
-## License
+---
 
-This project is licensed under the [GPL-3 License](LICENSE).
+## Usage
 
-## Contributing
+| Input           | Example                     | Output folder                             |
+| --------------- | --------------------------- | ----------------------------------------- |
+| Username        | `instagram`                 | `Downloads/InstaLoaderApp/<username>/`    |
+| Post / reel URL | `https://instagram.com/p/…` | `Downloads/InstaLoaderApp/posts/`         |
+| Hashtag         | `#travel`                   | `Downloads/InstaLoaderApp/hashtag_<tag>/` |
 
-Contributions are welcome! To contribute, please follow these guidelines:
+1. Enter a username, URL, or hashtag → **Start download**.
+2. For posts/reels, copy the link from Instagram and paste into the app.
 
-- Fork the repository and clone it to your local machine.
-- Make your changes and commit them with descriptive commit messages.
-- Push your changes to your fork on GitHub.
-- Open a pull request to the main repository, explaining your changes and their purpose.
+> [!WARNING]
+> Large profiles can take a long time. Instagram may restrict accounts used for automated downloading — use a secondary account at your own risk if you log in.
 
-# Developers
+---
 
-### Author
+## Build from source
+
+```
+git clone https://github.com/AzeemIdrisi/InstaLoaderApp.git
+cd InstaLoaderApp
+```
+
+Set `sdk.dir` in `local.properties`, then:
+
+```
+./gradlew installDebug
+```
+
+Requires Android Studio, JDK 17, and Python 3 for Chaquopy. See `app/build.gradle` for `buildPython` path.
+
+---
+
+## Disclaimer
+
+Use responsibly. Download only content you may access. The developer is not responsible for misuse. Credentials never leave your device.
+
+Licensed under [GPL-3.0](LICENSE). Contributions welcome via pull request.
+
+---
+
+## Developer
+
 <a href="https://github.com/azeemidrisi/">
-<!--   <img src="https://contrib.rocks/image?repo=azeemidrisi/phonesploit-pro" /> -->
- <img width="150px" src=https://github.com/AzeemIdrisi/PhoneSploit-Pro/assets/112647789/a5fa646c-93a2-460f-bcb7-528fedb147e9 />
-
+ <img width="150px" src="https://github.com/AzeemIdrisi/PhoneSploit-Pro/assets/112647789/a5fa646c-93a2-460f-bcb7-528fedb147e9" />
 </a>
 
-**Azeem Idrisi** - [@AzeemIdrisi](https://github.com/azeemidrisi/)
- 
-### Contributors
-Special thanks to all the contributors :
+**Azeem Idrisi** — [@AzeemIdrisi](https://github.com/azeemidrisi/) · [@noobshubham](https://github.com/noobshubham/) · [@PuruSinghvi](https://github.com/PuruSinghvi)
 
-[@noobshubham](https://github.com/noobshubham/)
+<a href="https://paypal.me/AzeemIdrisi" target="_blank"><img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
+<a href="https://www.buymeacoffee.com/AzeemIdrisi" target="_blank"><img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
 
-[@PuruSinghvi](https://github.com/PuruSinghvi)
+<hr>
 
-# Support Me
-If you like my work you can support me via :
-
-<a href="https://paypal.me/AzeemIdrisi" target="_blank"> <kbd> <img
-        src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal"
-        width="147"></a> <a href="https://www.buymeacoffee.com/AzeemIdrisi" target="_blank"> <kbd> <img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
-
-<hr/>
-<br/>
-InstaLoaderApp &copy Azeem Idrisi 2024
+Copyright © 2026 Azeem Idrisi ([github.com/AzeemIdrisi](https://github.com/AzeemIdrisi))

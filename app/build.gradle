@@ -1,47 +1,49 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.chaquo.python'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.chaquopy)
 }
 
 android {
     namespace 'com.alphacorp.instaloader'
-    compileSdk 33
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.alphacorp.instaloader"
-        minSdk 21
-        targetSdk 33
-        versionCode 1
-        versionName "1.4.1"
+        minSdk 24
+        targetSdk 35
+        versionCode 2
+        versionName "2.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         ndk {
-            abiFilters "armeabi-v7a", "x86_64"
-        }
-        python {
-            version "3.8"
-            buildPython "C:/Users/azm52/AppData/Local/Programs/Python/Python311/python.exe"
-            pip {
-                // A requirement specifier, with or without a version number:
-                install "instaloader"
-            }
+            abiFilters "arm64-v8a", "x86_64"
         }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
+
+    buildFeatures {
+        compose true
+    }
+
     sourceSets {
         main {
             python.srcDir "src/main/python"
@@ -49,15 +51,39 @@ android {
     }
 }
 
+chaquopy {
+    defaultConfig {
+        version "3.14"
+        buildPython "/opt/homebrew/bin/python3"
+        pip {
+            install "instaloader==4.15.1"
+        }
+    }
+}
+
 dependencies {
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.lifecycle.viewmodel.compose
+    implementation libs.androidx.lifecycle.runtime.compose
+    implementation libs.androidx.activity.compose
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.androidx.compose.ui
+    implementation libs.androidx.compose.ui.graphics
+    implementation libs.androidx.compose.ui.tooling.preview
+    implementation libs.androidx.compose.material3
+    implementation libs.androidx.compose.material.icons.extended
+    implementation libs.androidx.navigation.compose
+    implementation libs.androidx.datastore.preferences
+    implementation libs.androidx.security.crypto
+    implementation libs.google.material
+    implementation libs.kotlinx.coroutines.android
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
-
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+    androidTestImplementation platform(libs.androidx.compose.bom)
+    androidTestImplementation libs.androidx.compose.ui.test.junit4
+    debugImplementation libs.androidx.compose.ui.tooling
+    debugImplementation libs.androidx.compose.ui.test.manifest
 }
